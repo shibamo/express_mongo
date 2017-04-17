@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!--<link href="bootstrap.css" media="all" rel="stylesheet" />-->
+  <link href="highcharts.css" media="all" rel="stylesheet" />
+  <link href="vue-element-ui.css" media="all" rel="stylesheet" />
+</head>
+
+<body>
+  <h2 align="center"  style="margin: 10px auto;" >A boring game with computer</h2>
+  <div id="app" style="margin: 20px;">
+    <el-row>
+      <el-col :span="4">
+        <el-steps :space="150" :active="idx" finish-status="finish"
+        :align-center=true :center=true direction="vertical" >
+          <el-step v-for="n in count" :title="'Question ' + n" ></el-step>
+        </el-steps>
+      </el-col>
+      <el-col :span="20">
+        <div id="report-container"
+          style="min-width: 400px; max-width: 1200px; height: 400px; margin: 0 auto">
+        </div>
+      </el-col>
+    </el-row>
+    <el-row>
+    <el-button type="danger" @click="restartGame()" style="width: 100%;">
+      Restart Game ...
+    </el-button>
+    </el-row>
+    <el-dialog title="Input Answer" v-model="dialog.visible">
+      <div v-html="currentQuestion.questionItem"></div><hr>
+
+      <el-form v-model="currentQuestion">
+        <el-form-item label="Answer" >
+          <el-select v-model="answer" placeholder="Choose" >
+            <el-option
+              v-for="item in options"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="onAnswer()"
+        :disabled="answer==null"
+        >OK</el-button>
+      </div>
+    </el-dialog>
+
+  </div>
+</body>
+
+<!--<script src="jquery-1.10.2.js"></script>-->
+<script src="lodash.js"></script>
+<!--<script src="moment.js"></script>-->
+<script src="highcharts.js"></script>
+<script src="axios.js"></script>
+<script src="vue-2.1.0.js"></script>
+<script src="vue-element-ui.js"></script>
+<script src="client.js"></script>
+</html>

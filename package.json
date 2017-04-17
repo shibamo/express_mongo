@@ -1,0 +1,21 @@
+{
+  "name": "express-mongo",
+  "version": "1.0.0",
+  "description": "A boring game using Express, MongoDB & Highcharts",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",    
+    "colors": "^1.1.2",
+    "express": "^4.14.0",    
+    "lodash": "^4.17.4",
+    "moment": "^2.14.1",
+    "mongoose": "^4.5.3",
+    "uuid": "*",
+    "zeromq": "^4.2.0"
+  }
+}
